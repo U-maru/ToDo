@@ -15,6 +15,10 @@ def index():
 def todo_form():
     return render_template("ToDo_form.html")
 
+@app.route('/ToDo_List')
+def todo_list():
+    return render_template("ToDo_list.html")
+
 if __name__ == "__main__":
     # debugモードが不要の場合は、debug=Trueを消してください
     app.run(debug=True)

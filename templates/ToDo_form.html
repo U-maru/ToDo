@@ -37,13 +37,42 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Other</a>
               </li>
-              <button class="btn btn-primary ms-3">U_maru</button>
+              <button class="btn btn-primary ms-3" id="nav-button">U_maru</button>
             </ul>
           </div>
         </div>
-      </nav>
+    </nav>
 
       <!--  -->
+    <form class="todoform py-5 row g-3" action="">
+        <h1>ToDo</h1>
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputName" placeholder="YourName">
+        </div>
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Title</label>
+            <input type="text" class="form-control" id="inputTitle">
+        </div>
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">State</label>
+            <select id="inputState" class="form-select">
+                <option value="1" selected>High</option>
+                <option value="2">Middle</option>
+                <option value="3">Low</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="inputDate" class="form-label">Date</label>
+            <input type="date" class="form-select">
+        </div>
+        <div class="col-12 mb-3">
+            <label for="inputAddress" class="form-label">ToDo</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="***">
+        </div>
+        <button type="submit" class="btn btn-primary col-4 mx-auto mt-6">Add</button>
+    </form>
 
 </body>
 </html>
