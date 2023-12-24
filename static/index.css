@@ -1,0 +1,18 @@
+:root {
+    --primary: #0d6dfd;
+    --dark: #21252f;
+    --body: #888;
+}
+
+.navbar .nav-link {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+.btn-primary {
+    padding: 10px 15px !important;
+    font-size: 17px !important;
+    border-radius: 0 !important;
+}
