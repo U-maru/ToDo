@@ -1,9 +1,11 @@
-from flask import Flask, request, render_template, redirect, url_for, send_from_directory
+from flask import Flask, request, render_template, redirect, url_for, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
+import json
 import os
 import glob
 
 app = Flask(__name__)
+app.config["JSON_AS_ASCII"] = False  # 日本語などのASCII以外の文字列を返したい場合は、こちらを設定しておく
 
 # Topページ
 # http://127.0.0.1:5000/
@@ -14,6 +16,23 @@ def index():
 @app.route('/ToDo')
 def todo_form():
     return render_template("ToDo_form.html")
+
+@app.route('/ToDo_List', methods=["POST"])
+def add_todo():
+    # 追加パラメータの取得
+    new_data = request.form.to_dict()
+
+    with open('ToDo.json') as f:
+        # 既存のデータを読み込み
+        json_data = list(json.load(f))
+        # 新しいデータを既存のデータに登録
+        json_data.append(new_data)
+
+    with open('ToDo.json', mode="w") as f:
+        # 新データ登録済みのデータを'address.json'に上書き
+        json.dump(json_data, f, indent=4)
+
+    return render_template("ToDo__form.html")
 
 @app.route('/ToDo_List')
 def todo_list():
