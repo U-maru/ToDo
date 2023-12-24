@@ -5,9 +5,15 @@ import glob
 
 app = Flask(__name__)
 
+# Topページ
+# http://127.0.0.1:5000/
 @app.route('/')
 def index():
     return render_template("index.html")
+
+@app.route('/ToDo')
+def todo_form():
+    return render_template("ToDo_form.html")
 
 if __name__ == "__main__":
     # debugモードが不要の場合は、debug=Trueを消してください
