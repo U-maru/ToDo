@@ -14,13 +14,14 @@ btnAdd.addEventListener("click", (event) => {
 
     console.log("送信データ:formData", ...formData)
 
-    if ((formData.get("name") != "") || (formData.get("title") != "") || (formData.get("date") != "") || (formData.get("text") != "")) {
+    if ((formData.get("name") != "") && (formData.get("title") != "") && (formData.get("date") != "") && (formData.get("text") != "")) {
         // データ登録のWeb APIを/addressをPOSTメソッドで呼び出す
-        fetch("/ToDo_List", {
+        fetch("/add_ToDo", {
             method: 'POST',
             body: formData, // 登録するデータ(FormData形式)
         }).then((response) => {
             console.log("送信されたデータ", response)
+            
         })
     } else {
         console.log("送信していません！")

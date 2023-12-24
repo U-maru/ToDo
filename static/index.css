@@ -26,9 +26,29 @@
     padding-left: 25%;
     padding-right: 25%;
 }
+#success-message {
+    border-left-width: 0.25rem;
+    border-left-color:mediumseagreen;
+}
 #add-button {
     align-content: center;
 }
 
 
 /* ToDo_list.htmlのCSS */
+.todolist {
+    padding-left: 30%;
+    padding-right: 30%;
+}
+#todo-card {
+    border-radius: 20px;
+    border-width: 2.5px;
+}
+#todo-card-header {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+#todo-card-footer {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

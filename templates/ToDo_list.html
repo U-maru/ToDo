@@ -17,7 +17,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-dark py-3">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand">
             <h1 class="fs-4 text-white pt-1">U_maru&nbsp;&nbsp;&nbsp;Home</h1>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,10 +43,37 @@
         </div>
     </nav>
 
-    <!--  -->
-    <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, assumenda!
-    </p>
+    <!-- ToDo List --> 
+    <h1 class="text-center pt-4">ToDo List</h1>
+    <div class="todolist row row-cols-1 row-cols-sm-2 row-cols-md-1 g-3">
+        {% for d in data %}
+        <div class="col">
+            {% if d['state'] == "高" %}
+            <div class="card text-center mb-2" id="todo-card" style="border-color: red;">
+            {% endif %}
+            {% if d['state'] == "中" %}
+            <div class="card text-center mb-2" id="todo-card" style="border-color: blue;">
+            {% endif %}
+            {% if d['state'] == "低" %}
+            <div class="card text-center mb-2" id="todo-card" style="border-color: lightgreen;">
+            {% endif %}
+                <div class="card-header" id="todo-card-header">
+                    <h5 class="card-title my-2">{{ d['title'] }}</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ d['text'] }}</p>
+                    <!--
+                    <a href="#" class="btn btn-primary">編集</a>
+                    <a href="#" class="btn btn-danger">削除</a>
+                    -->
+                </div>
+                <div class="card-footer text-body-secondary" id="todo-card-footer">
+                    期限：{{ d['date'] }} / {{ d['state'] }}
+                </div>
+              </div>        
+        </div>
+        {% endfor %}
+    </div>
 
 </body>
 </html>
