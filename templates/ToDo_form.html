@@ -50,29 +50,49 @@
     <form class="todoform py-5 row g-3">
         <h1>ToDo</h1>
         <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Name</label>
-            <input type="text" class="form-control" id="add-Name" placeholder="YourName">
+            <label for="inputName" class="form-label">
+                氏名
+            </label>
+            <input type="text" class="form-control" id="add-Name" placeholder="">
         </div>
         <div class="col-md-6"></div>
         <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Title</label>
-            <input type="text" class="form-control" id="add-Title">
+            <label for="inputTitle" class="form-label">
+                タイトル
+            </label>
+            <input type="text" class="form-control" id="add-Title" placeholder="">
         </div>
         <div class="col-md-4">
-            <label for="inputDate" class="form-label">Date</label>
+            <label for="inputDate" class="form-label">
+                期限
+            </label>
             <input type="date" class="form-select" id="add-Date" min="2023-01-01" pattern="\d{4}-\d{2}-\d{2}">
         </div>
         <div class="col-md-2">
-            <label for="inputState" class="form-label">State</label>
+            <label for="inputState" class="form-label">
+                優先度
+            </label>
             <select class="form-select" id="add-State">
-                <option value="高" selected>High</option>
-                <option value="中">Middle</option>
-                <option value="低">Low</option>
+                <option value="高" selected>
+                    高
+                </option>
+                <option value="中">
+                    中
+                </option>
+                <option value="低">
+                    低
+                </option>
             </select>
         </div>
         <div class="col-12 mb-3">
-            <label for="inputAddress" class="form-label">ToDo</label>
-            <textarea class="form-control" id="add-Text" rows="3"></textarea>
+            <label for="inputTodo" class="form-label">
+                詳細
+            </label>
+            <textarea class="form-control" id="add-Text" rows="3" placeholder=""></textarea>
+        </div>
+        <div class="col-12 mt-0" id="message-container" style="display: none;">
+            <div class="alert alert-primary" id="succese-container" role="alert" style="display: none;"></div>
+            <div class="alert alert-danger col-12 mx-auto" id="error-container" role="alert" style="display: none;"></div>
         </div>
         <button class="btn btn-primary col-4 mx-auto mt-6" id="add-submit">Add</button>
     </form>

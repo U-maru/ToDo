@@ -15,18 +15,40 @@ btnAdd.addEventListener("click", (event) => {
 
     console.log("送信データ:formData", ...formData)
 
+    // 登録完了メッセージ、エラーメッセージ
+    const mes_cont = document.getElementById("message-container")
+    const suc_cont = document.getElementById("succese-container")
+    const err_cont = document.getElementById("error-container")
+
+    // メッセージを表示できるようにする
+    mes_cont.style.display = "block"
+
     if ((formData.get("name") != "") && (formData.get("title") != "") && (formData.get("date") != "") && (formData.get("text") != "")) {
         // データ登録のWeb APIを/add_ToDoをPOSTメソッドで呼び出す
         fetch("/add_ToDo", {
             method: 'POST',
             body: formData, // 登録するデータ(FormData形式)
         }).then((response) => {
-            console.log("送信されたデータ", response)
+            // console.log("送信されたデータ", response)
 
-            // ページの再読み込み
-            location.reload()
+            // 登録完了メッセージを表示
+            suc_text = "データの登録が完了しました！"
+            suc_cont.style.display = "block"
+            suc_cont.textContent = suc_text
+            // エラーメッセージは隠す
+            err_cont.style.display = "none"
+
+            document.querySelector('#add-Name').value = ""
+            document.querySelector('#add-Title').value = ""
+            document.querySelector('#add-Date').value = ""
+            document.querySelector('#add-Text').value = ""
         })
     } else {
-        console.log("送信していません！")
+        // エラーメッセージの表示
+        err_text = "登録に失敗しました"
+        err_cont.style.display = "block"
+        err_cont.textContent = err_text
+        // 登録完了メッセージは隠す
+        suc_cont.style.display = "none"
     }
 });
