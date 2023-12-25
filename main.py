@@ -29,16 +29,38 @@ def add_todo():
         json_data.append(new_data)
 
     with open('ToDo.json', mode="w") as f:
-        # 新データ登録済みのデータを'address.json'に上書き
+        # 新データ登録済みのデータを'ToDo.json'に上書き
         json.dump(json_data, f, indent=4)
 
     return render_template("ToDo_form.html")
+
+@app.route('/remove_ToDo', methods=["POST"])
+def remove_todo():
+    json_index = request.form.to_dict()
+    index = int(json_index['index'])
+
+    with open('ToDo.json') as f:
+        # 既存のデータを読み込み
+        json_data = list(json.load(f))
+
+    del json_data[index]
+
+    with open('ToDo.json', mode="w") as f:
+        # 新データ登録済みのデータを'ToDo.json'に上書き
+        json.dump(json_data, f, indent=4)
+    
+    return redirect(url_for('todo_list'))
 
 @app.route('/ToDo_List')
 def todo_list():
     with open('ToDo.json') as f:
         # 既存のデータを読み込み
         json_data = list(json.load(f))
+
+    index = 0
+    for jd in json_data:
+        jd['index'] = index
+        index = index + 1
 
     return render_template("ToDo_list.html", data=json_data)
 
