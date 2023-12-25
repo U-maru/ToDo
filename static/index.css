@@ -22,13 +22,15 @@
 .hero {
     font-size: large;
     font-weight: 500;
+    /*
     background: linear-gradient(
       217deg,
       rgba(255, 0, 0, 0.7),
       rgba(255, 0, 0, 0) 70.71%
     ), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
     linear-gradient(336deg, rgba(0, 0, 255, 0.7), rgba(0, 0, 255, 0) 70.71%);
-    /*background: linear-gradient(to bottom left, cyan 50%, palegoldenrod 50%);*/
+    */
+    background: linear-gradient(to bottom left, cyan 50%, palegoldenrod 50%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -29,7 +29,7 @@ btnAdd.addEventListener("click", (event) => {
             method: 'POST',
             body: formData, // 登録するデータ(FormData形式)
         }).then((response) => {
-            // console.log("送信されたデータ", response)
+            console.log("送信されたデータ", response)
 
             // 登録完了メッセージを表示
             suc_text = "データの登録が完了しました！"

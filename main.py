@@ -51,6 +51,15 @@ def remove_todo():
     
     return redirect(url_for('todo_list'))
 
+@app.route('/edit_ToDo', methods=['POST'])
+def edit_todo():
+    return render_template("ToDo_edit.html")
+
+@app.route('/ToDo_Edit')
+def todo_edit():
+    return render_template("ToDo_edit.html")
+
+
 @app.route('/ToDo_List')
 def todo_list():
     with open('ToDo.json') as f:

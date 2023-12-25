@@ -47,18 +47,30 @@
     </nav>
 
     <!-- ToDo List --> 
-    <h1 class="text-center pt-4">ToDo List</h1>
-    <div class="todolist row row-cols-1 row-cols-sm-2 row-cols-md-1 g-3">
+    <!-- Example split danger button -->
+    <div class="todolist row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3 pt-2">
+        <div class="col-md-3"></div>
+        <h1 class="text-center col-md-6 pt-4">ToDo List</h1>
+        <div class="dropdown col-md-3 pt-4 d-flex align-items-center">
+            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+                絞り込み
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">優先度：高</a></li>
+                <li><a class="dropdown-item" href="#">優先度：中</a></li>
+                <li><a class="dropdown-item" href="#">優先度：低</a></li>
+            </ul>
+        </div>
         {% for d in data %}
         <div class="col">
             {% if d['state'] == "高" %}
             <div class="card text-center mb-2" id="todo-card" style="border-color: red;">
             {% endif %}
             {% if d['state'] == "中" %}
-            <div class="card text-center mb-2" id="todo-card" style="border-color: blue;">
+            <div class="card text-center mb-2" id="todo-card" style="border-color: lightgreen;">
             {% endif %}
             {% if d['state'] == "低" %}
-            <div class="card text-center mb-2" id="todo-card" style="border-color: lightgreen;">
+            <div class="card text-center mb-2" id="todo-card" style="border-color: blue;">
             {% endif %}
                 <div class="card-header" id="todo-card-header">
                     <h5 class="card-title my-2">{{ d['title'] }}</h5>
@@ -68,8 +80,67 @@
                     <p class="card-text mx-2" style="text-align: right;">期限：{{ d['date'] }}</p>
                 </div>
                 <div class="card-footer text-body-secondary" id="todo-card-footer">
-                    <a href="#" class="btn btn-outline-primary col-3" id="{{ d['index'] }}">編集</a>
-                    <button class="btn btn-outline-danger col-3" id="{{ d['index'] }}">削除</button>
+                    <button class="btn btn-outline-primary col-3" id="{{ d['index'] }}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        編集
+                    </button>
+                    <!-- 編集ボタンを押すとmodalが表示される -->
+                    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">ToDo_Edit</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">氏名:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">タイトル:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">詳細:</label>
+                                            <textarea class="form-control" id="message-text"></textarea>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="inputDate" class="form-label">
+                                                    期限:
+                                                </label>
+                                                <input type="date" class="form-select" id="add-Date" min="2023-01-01" pattern="\d{4}-\d{2}-\d{2}">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="inputState" class="form-label">
+                                                    優先度:
+                                                </label>
+                                                <select class="form-select" id="add-State">
+                                                    <option value="高" selected>
+                                                        高
+                                                    </option>
+                                                    <option value="中">
+                                                        中
+                                                    </option>
+                                                    <option value="低">
+                                                        低
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                                    <button type="button" class="btn btn-primary">変更を保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="remove btn btn-outline-danger col-3" id="{{ d['index'] }}">
+                        削除
+                    </button>
                 </div>
               </div>        
         </div>

@@ -1,8 +1,8 @@
 
-// ボタン要素をすべて取得
-var buttons = document.querySelectorAll('button');
+// 削除ボタン要素をすべて取得
+var remove_buttons = document.querySelectorAll('.remove');
 // ボタンごとにイベントリスナーを追加
-buttons.forEach(function(button) {
+remove_buttons.forEach(function(button) {
     button.addEventListener('click', (event) => {
         // 現在動作中のクリックイベント以外のボタンイベントをキャンセル（データの送信自体もキャンセルされる）
         event.preventDefault()
