@@ -38,28 +38,6 @@
 }
 
 
-/* ToDo_form.htmlのCSS */
-.todoform {
-    padding-left: 25%;
-    padding-right: 25%;
-}
-#succese-container {
-    border-left-width: 0.25rem;
-    border-left-color: dodgerblue;
-}
-#error-container {
-    border-left-width: 0.25rem;
-    border-left-color: red;
-}
-#edit-error-container {
-    border-left-width: 0.25rem;
-    border-left-color: red;
-}
-#add-button {
-    align-content: center;
-}
-
-
 /* ToDo_list.htmlのCSS */
 .todolist {
     padding-left: 30%;
@@ -76,4 +54,12 @@
 #todo-card-footer {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+#error-container {
+    border-left-width: 0.25rem;
+    border-left-color: red;
+}
+#edit-error-container {
+    border-left-width: 0.25rem;
+    border-left-color: red;
 }
