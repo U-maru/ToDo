@@ -1,16 +1,9 @@
 [
     {
-        "name": "\u4eca\u4e95\u7fd4\u5927",
-        "title": "\u5909\u66f4\u5f8c_00",
-        "state": "\u4e2d",
+        "name": "Unknown_01",
+        "title": "Sample_01",
+        "text": "hogehoge, fugafuga",
         "date": "2023-12-26",
-        "text": "\u5909\u66f4\u524d_00"
-    },
-    {
-        "name": "Bob",
-        "title": "\u5909\u66f4\u5f8c_01",
-        "state": "\u4f4e",
-        "date": "2024-01-31",
-        "text": "\u5909\u66f4\u5f8c_01"
+        "state": "\u9ad8"
     }
 ]

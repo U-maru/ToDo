@@ -28,19 +28,19 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/ToDo">ToDo</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/ToDo_List">List</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Other</a>
-              </li>
-              <button class="btn btn-primary ms-3" id="nav-button">U_maru</button>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ToDo_List">ToDo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Othre1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Other2</a>
+                </li>
+                <button class="btn btn-primary ms-3" id="nav-button">U_maru</button>
             </ul>
           </div>
         </div>
@@ -51,15 +51,72 @@
     <div class="todolist row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3 pt-2">
         <div class="col-md-3"></div>
         <h1 class="text-center col-md-6 pt-4">ToDo List</h1>
-        <div class="dropdown col-md-3 pt-4 d-flex align-items-center">
-            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
-                絞り込み
+        <div class="dropdown col-lg-3 pt-4 d-flex align-items-center">
+            <button type="button" class="add-start btn btn-sm btn-secondary"  data-bs-toggle="modal" data-bs-target="#addModal" style="width: 100%;">
+                追加
             </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">優先度：高</a></li>
-                <li><a class="dropdown-item" href="#">優先度：中</a></li>
-                <li><a class="dropdown-item" href="#">優先度：低</a></li>
-            </ul>
+            <!-- 編集ボタンを押すとmodalが表示される -->
+            <div class="modal fade" id="addModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- 編集画面 -->
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">ToDo_Add</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">氏名:</label>
+                                    <input type="text" class="form-control" id="add-Name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">タイトル:</label>
+                                    <input type="text" class="form-control" id="add-Title">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">詳細:</label>
+                                    <textarea class="form-control" id="add-Text" rows="3"></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="inputDate" class="form-label">
+                                            期限:
+                                        </label>
+                                        <input type="date" class="form-select" id="add-Date" min="2023-01-01" pattern="\d{4}-\d{2}-\d{2}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputState" class="form-label">
+                                            優先度:
+                                        </label>
+                                        <select class="form-select" id="add-State">
+                                            <option value="高" selected>
+                                                高
+                                            </option>
+                                            <option value="中">
+                                                中
+                                            </option>
+                                            <option value="低">
+                                                低
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-0" style="display: none;">
+                                    <input type="text" class="form-control" id="add-Index">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-12 mt-0" id="message-container" style="display: none;">
+                                <div class="alert alert-danger col-12 mx-auto" id="error-container" role="alert" style="display: none;"></div>
+                            </div>
+                            <button type="button" class="btn btn-secondary col-3" data-bs-dismiss="modal">キャンセル</button>
+                            <button type="button" class="add-submit btn btn-primary col-2">追加</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         {% for d in data %}
         <div class="col">
@@ -82,7 +139,7 @@
                 </div>
                 <div class="card-footer text-body-secondary" id="todo-card-footer">
                     <!-- 編集ボタン -->
-                    <button class="edit-start btn btn-outline-primary col-3" id="{{ d['index'] }}" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <button class="edit-start btn btn-outline-primary col-sm-3" id="{{ d['index'] }}" data-bs-toggle="modal" data-bs-target="#editModal">
                         編集
                     </button>
                     <!-- 編集ボタンを押すとmodalが表示される -->
@@ -106,7 +163,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">詳細:</label>
-                                            <textarea class="form-control" id="edit-Text"></textarea>
+                                            <textarea class="form-control" id="edit-Text" rows="3"></textarea>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -132,12 +189,15 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 mt-0" id="message-container" style="display: none;">
+                                        <div class="col-12 mt-0" style="display: none;">
                                             <input type="text" class="form-control" id="edit-Index">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
+                                    <div class="col-12 mt-0" id="edit-message-container" style="display: none;">
+                                        <div class="alert alert-danger col-12 mx-auto" id="edit-error-container" role="alert" style="display: none;"></div>
+                                    </div>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
                                     <button type="button" class="edit-end btn btn-primary" id="{{ d['index'] }}">変更を保存</button>
                                 </div>
@@ -145,11 +205,11 @@
                         </div>
                     </div>
                     <!-- 削除ボタン -->
-                    <button class="remove btn btn-outline-danger col-3" id="{{ d['index'] }}">
+                    <button class="remove btn btn-outline-danger col-sm-3" id="{{ d['index'] }}">
                         削除
                     </button>
                 </div>
-              </div>        
+            </div>        
         </div>
         {% endfor %}
     </div>

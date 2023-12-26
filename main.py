@@ -13,14 +13,6 @@ app.config["JSON_AS_ASCII"] = False  # 日本語などのASCII以外の文字列
 def index():
     return render_template("index.html")
 
-
-# ToDoの追加ページ
-# http://127.0.0.1:5000/ToDo
-@app.route('/ToDo')
-def todo_form():
-    return render_template("ToDo_form.html")
-
-
 # ToDoの追加処理
 @app.route('/add_ToDo', methods=["POST"])
 def add_todo():
@@ -37,7 +29,7 @@ def add_todo():
         # 新データ登録済みのデータを'ToDo.json'に上書き
         json.dump(json_data, f, indent=4)
 
-    return render_template("ToDo_form.html")
+    return jsonify(json_data)
 
 # ToDoの削除処理
 @app.route('/remove_ToDo', methods=["POST"])
