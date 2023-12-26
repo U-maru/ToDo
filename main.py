@@ -13,10 +13,15 @@ app.config["JSON_AS_ASCII"] = False  # 日本語などのASCII以外の文字列
 def index():
     return render_template("index.html")
 
+
+# ToDoの追加ページ
+# http://127.0.0.1:5000/ToDo
 @app.route('/ToDo')
 def todo_form():
     return render_template("ToDo_form.html")
 
+
+# ToDoの追加処理
 @app.route('/add_ToDo', methods=["POST"])
 def add_todo():
     # 追加パラメータの取得
@@ -34,6 +39,7 @@ def add_todo():
 
     return render_template("ToDo_form.html")
 
+# ToDoの削除処理
 @app.route('/remove_ToDo', methods=["POST"])
 def remove_todo():
     json_index = request.form.to_dict()
@@ -51,15 +57,47 @@ def remove_todo():
     
     return redirect(url_for('todo_list'))
 
-@app.route('/edit_ToDo', methods=['POST'])
-def edit_todo():
-    return render_template("ToDo_edit.html")
 
-@app.route('/ToDo_Edit')
-def todo_edit():
-    return render_template("ToDo_edit.html")
+# ToDoの変更画面の設定
+@app.route('/edit_start_ToDo', methods=['POST'])
+def edit_start_todo():
+    json_index = request.form.to_dict()
+    index = int(json_index['index'])
+
+    with open('ToDo.json') as f:
+        # 既存のデータを読み込み
+        json_data = list(json.load(f))
+
+    # 編集画面に必要な情報のみを抽出
+    target_data = json_data[index]
+    return jsonify(target_data)
+
+# ToDoの変更処理
+@app.route('/edit_end_ToDo', methods=['POST'])
+def edit_end_ToDo():
+    new_data = request.form.to_dict()
+    index = int(new_data['index'])
+
+    with open('ToDo.json') as f:
+        # 既存のデータを読み込み
+        json_data = list(json.load(f))
+
+    # 変更したいデータを新しくアップデートする
+    json_data[index].update(name=new_data['name'])
+    json_data[index].update(title=new_data['title'])
+    json_data[index].update(text=new_data['text'])
+    json_data[index].update(date=new_data['date'])
+    json_data[index].update(state=new_data['state'])
+
+    with open('ToDo.json', mode="w") as f:
+        # 新データ登録済みのデータを'ToDo.json'に上書き
+        json.dump(json_data, f, indent=4)
+
+    return redirect(url_for('todo_list'))
 
 
+# ToDoリストの表示ページ
+# http://127.0.0.1:5000/ToDo_List
 @app.route('/ToDo_List')
 def todo_list():
     with open('ToDo.json') as f:
