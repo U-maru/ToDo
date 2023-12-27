@@ -46,171 +46,176 @@
         </div>
     </nav>
 
-    <!-- ToDo List --> 
-    <div class="todolist row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3 pt-2">
-        <div class="col-md-3"></div>
-        <h1 class="text-center col-md-6 pt-4">ToDo List</h1>
-        <div class="dropdown col-lg-3 pt-4 d-flex align-items-center">
-            <button type="button" class="add-start btn btn-sm btn-secondary"  data-bs-toggle="modal" data-bs-target="#addModal" style="width: 100%;">
-                追加
-            </button>
-            <!-- 編集ボタンを押すとmodalが表示される -->
-            <div class="modal fade" id="addModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <!-- 編集画面 -->
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">ToDo_Add</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">氏名:</label>
-                                    <input type="text" class="form-control" id="add-Name">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">タイトル:</label>
-                                    <input type="text" class="form-control" id="add-Title">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">詳細:</label>
-                                    <textarea class="form-control" id="add-Text" rows="3"></textarea>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="inputDate" class="form-label">
-                                            期限:
-                                        </label>
-                                        <input type="date" class="form-select" id="add-Date" min="2023-01-01" pattern="\d{4}-\d{2}-\d{2}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputState" class="form-label">
-                                            優先度:
-                                        </label>
-                                        <select class="form-select" id="add-State">
-                                            <option value="高" selected>
-                                                高
-                                            </option>
-                                            <option value="中">
-                                                中
-                                            </option>
-                                            <option value="低">
-                                                低
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-0" style="display: none;">
-                                    <input type="text" class="form-control" id="add-Index">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="col-12 mt-0" id="message-container" style="display: none;">
-                                <div class="alert alert-danger col-12 mx-auto" id="error-container" role="alert" style="display: none;"></div>
+    <div class="hoge d-flex">
+        <div class="col-md-4"></div>
+        <!-- ToDo List --> 
+        <div class="todolist col-md-4 row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3 pt-2">
+            <div class="col-md-3"></div>
+            <h1 class="text-center col-md-6 pt-4">ToDo List</h1>
+            <div class="dropdown col-md-3 pt-4 d-flex align-items-center">
+                <button type="button" class="add-start btn btn-sm btn-secondary"  data-bs-toggle="modal" data-bs-target="#addModal" style="width: 100%;">
+                    追加
+                </button>
+                <!-- 編集ボタンを押すとmodalが表示される -->
+                <div class="modal fade" id="addModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <!-- 編集画面 -->
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">ToDo_Add</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <button type="button" class="btn btn-secondary col-3" data-bs-dismiss="modal">キャンセル</button>
-                            <button type="button" class="add-submit btn btn-primary col-2">追加</button>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">氏名:</label>
+                                        <input type="text" class="form-control" id="add-Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">タイトル:</label>
+                                        <input type="text" class="form-control" id="add-Title">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">詳細:</label>
+                                        <textarea class="form-control" id="add-Text" rows="3"></textarea>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="inputDate" class="form-label">
+                                                期限:
+                                            </label>
+                                            <input type="date" class="form-select" id="add-Date" min="2023-01-01" pattern="\d{4}-\d{2}-\d{2}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="inputState" class="form-label">
+                                                優先度:
+                                            </label>
+                                            <select class="form-select" id="add-State">
+                                                <option value="高" selected>
+                                                    高
+                                                </option>
+                                                <option value="中">
+                                                    中
+                                                </option>
+                                                <option value="低">
+                                                    低
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-0" style="display: none;">
+                                        <input type="text" class="form-control" id="add-Index">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="col-12 mt-0" id="message-container" style="display: none;">
+                                    <div class="alert alert-danger col-12 mx-auto" id="error-container" role="alert" style="display: none;"></div>
+                                </div>
+                                <button type="button" class="btn btn-secondary col-3" data-bs-dismiss="modal">キャンセル</button>
+                                <button type="button" class="add-submit btn btn-primary col-2">追加</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        {% for d in data %}
-        <div class="col">
-            <!-- 優先度によって枠の色を変える -->
-            {% if d['state'] == "高" %}
-            <div class="card text-center mb-2" id="todo-card" style="border-color: red;">
-            {% endif %}
-            {% if d['state'] == "中" %}
-            <div class="card text-center mb-2" id="todo-card" style="border-color: lightgreen;">
-            {% endif %}
-            {% if d['state'] == "低" %}
-            <div class="card text-center mb-2" id="todo-card" style="border-color: blue;">
-            {% endif %}
-                <div class="card-header" id="todo-card-header">
-                    <h5 class="card-title my-2">{{ d['title'] }}</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{ d['text'] }}</p>
-                    <p class="card-text mx-2" style="text-align: right;">期限：{{ d['date'] }}</p>
-                </div>
-                <div class="card-footer text-body-secondary" id="todo-card-footer">
-                    <!-- 編集ボタン -->
-                    <button class="edit-start btn btn-outline-primary col-sm-3" id="{{ d['index'] }}" data-bs-toggle="modal" data-bs-target="#editModal">
-                        編集
-                    </button>
-                    <!-- 編集ボタンを押すとmodalが表示される -->
-                    <div class="modal fade" id="editModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <!-- 編集画面 -->
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">ToDo_Edit</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">氏名:</label>
-                                            <input type="text" class="form-control" id="edit-Name">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">タイトル:</label>
-                                            <input type="text" class="form-control" id="edit-Title">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">詳細:</label>
-                                            <textarea class="form-control" id="edit-Text" rows="3"></textarea>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="inputDate" class="form-label">
-                                                    期限:
-                                                </label>
-                                                <input type="date" class="form-select" id="edit-Date" min="2023-01-01" pattern="\d{4}-\d{2}-\d{2}">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="inputState" class="form-label">
-                                                    優先度:
-                                                </label>
-                                                <select class="form-select" id="edit-State">
-                                                    <option value="高" selected>
-                                                        高
-                                                    </option>
-                                                    <option value="中">
-                                                        中
-                                                    </option>
-                                                    <option value="低">
-                                                        低
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 mt-0" style="display: none;">
-                                            <input type="text" class="form-control" id="edit-Index">
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="col-12 mt-0" id="edit-message-container" style="display: none;">
-                                        <div class="alert alert-danger col-12 mx-auto" id="edit-error-container" role="alert" style="display: none;"></div>
+            
+            {% for d in data %}
+            <div class="col">
+                <!-- 優先度によって枠の色を変える -->
+                {% if d['state'] == "高" %}
+                <div class="card text-center mb-2" id="todo-card" style="border-color: red;">
+                {% endif %}
+                {% if d['state'] == "中" %}
+                <div class="card text-center mb-2" id="todo-card" style="border-color: lightgreen;">
+                {% endif %}
+                {% if d['state'] == "低" %}
+                <div class="card text-center mb-2" id="todo-card" style="border-color: blue;">
+                {% endif %}
+                    <div class="card-header" id="todo-card-header">
+                        <h5 class="card-title my-2">{{ d['title'] }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ d['text'] }}</p>
+                        <p class="card-text mx-2" style="text-align: right;">期限：{{ d['date'] }}</p>
+                    </div>
+                    <div class="card-footer text-body-secondary" id="todo-card-footer">
+                        <!-- 編集ボタン -->
+                        <button class="edit-start btn btn-outline-primary col-sm-3" id="{{ d['index'] }}" data-bs-toggle="modal" data-bs-target="#editModal">
+                            編集
+                        </button>
+                        <!-- 編集ボタンを押すとmodalが表示される -->
+                        <div class="modal fade" id="editModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- 編集画面 -->
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">ToDo_Edit</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
-                                    <button type="button" class="edit-end btn btn-primary" id="{{ d['index'] }}">変更を保存</button>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label">氏名:</label>
+                                                <input type="text" class="form-control" id="edit-Name">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label">タイトル:</label>
+                                                <input type="text" class="form-control" id="edit-Title">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="message-text" class="col-form-label">詳細:</label>
+                                                <textarea class="form-control" id="edit-Text" rows="3"></textarea>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="inputDate" class="form-label">
+                                                        期限:
+                                                    </label>
+                                                    <input type="date" class="form-select" id="edit-Date" min="2023-01-01" pattern="\d{4}-\d{2}-\d{2}">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="inputState" class="form-label">
+                                                        優先度:
+                                                    </label>
+                                                    <select class="form-select" id="edit-State">
+                                                        <option value="高" selected>
+                                                            高
+                                                        </option>
+                                                        <option value="中">
+                                                            中
+                                                        </option>
+                                                        <option value="低">
+                                                            低
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mt-0" style="display: none;">
+                                                <input type="text" class="form-control" id="edit-Index">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="col-12 mt-0" id="edit-message-container" style="display: none;">
+                                            <div class="alert alert-danger col-12 mx-auto" id="edit-error-container" role="alert" style="display: none;"></div>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                                        <button type="button" class="edit-end btn btn-primary" id="{{ d['index'] }}">変更を保存</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- 削除ボタン -->
+                        <button class="remove btn btn-outline-danger col-sm-3" id="{{ d['index'] }}">
+                            削除
+                        </button>
                     </div>
-                    <!-- 削除ボタン -->
-                    <button class="remove btn btn-outline-danger col-sm-3" id="{{ d['index'] }}">
-                        削除
-                    </button>
-                </div>
-            </div>        
+                </div>        
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+        <div class="col-md-4"></div>
     </div>
 
 </body>

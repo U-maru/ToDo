@@ -40,8 +40,11 @@
 
 /* ToDo_list.htmlのCSS */
 .todolist {
+    border: #0d6dfd;
+    /*
     padding-left: 30%;
     padding-right: 30%;
+    */
 }
 #todo-card {
     border-radius: 20px;
